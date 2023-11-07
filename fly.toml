@@ -1,19 +1,21 @@
-# fly.toml app configuration file generated for fiburr on 2023-11-06T00:23:36-07:00
+# fly.toml app configuration file generated for darius on 2023-11-06T18:42:20-07:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
 app = "darius"
-primary_region = "yyz"
+primary_region = "sea"
+
+[build]
 
 [env]
-PORT = "3000"
-BP_KEEP_FILES = "templates/*"
+  BP_KEEP_FILES = "templates/*"
+  PORT = "3000"
 
 [http_service]
-internal_port = 3000
-force_https = true
-auto_stop_machines = true
-auto_start_machines = true
-min_machines_running = 0
-processes = ["app"]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ["app"]
