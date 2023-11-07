@@ -19,7 +19,9 @@ func main() {
 	})
 
 	// Static Routes
-	app.Static("/", "./public")
+	app.Static("/", "./public", fiber.Static{
+		Compress: true,
+	})
 
 	// Page Routes
 	app.Get("/", pages.IndexHandler)
