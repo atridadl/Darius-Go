@@ -1,6 +1,7 @@
-![Darius Logo](https://github.com/atridadl/Darius/assets/88056492/2b7f321c-536b-447c-a7cb-2a58d8f62776)
+![Darius Logo](https://github.com/atridadl/Darius/assets/88056492/6609e787-06e5-466f-aa72-1ddbcd3e7f7c)
 
 # ✨ Darius ✨
+
 
 🚀 A Web Application Template Powered by HTMX + Go Fiber + Tailwind 🚀
 
