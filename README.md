@@ -9,11 +9,11 @@
 
 ## Directory Stucture
 
-public/ - Static assets
-pages/ - Page route handlers
-templates/ - HTML Templates for use in route handlers
-templates/partials - HTML partials for use in templates
-api/ - API route handlers
+- public/ - Static assets
+- pages/ - Page route handlers
+- templates/ - HTML Templates for use in route handlers
+- templates/partials - HTML partials for use in templates
+- api/ - API route handlers
 
 ## CSS Changes
 
