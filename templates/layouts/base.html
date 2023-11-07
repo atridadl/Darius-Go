@@ -1,0 +1,15 @@
+{{define "base"}}
+<!DOCTYPE html>
+<html lang="en" class="w-full h-full fixed overflow-y-auto">
+  <head>
+    {{template "partials/basehead" .}}
+  </head>
+  <body class="h-full w-full fixed overflow-y-auto">
+    <main
+      class="flex flex-col text-center items-center justify-center px-4 py-16 gap-4 min-h-full"
+    >
+      {{template "main" .}} {{template "partials/footer" .}}
+    </main>
+  </body>
+</html>
+{{end}}

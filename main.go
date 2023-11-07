@@ -15,7 +15,8 @@ func main() {
 	engine := html.New("./templates", ".html")
 
 	app := fiber.New(fiber.Config{
-		Views: engine,
+		Views:       engine,
+		ViewsLayout: "base",
 	})
 
 	// Static Routes
