@@ -5,6 +5,7 @@ WORKDIR /app
 ADD . /templates
 ADD . /pages
 ADD . /api
+ADD . /lib
 ADD . /public
 
 COPY go.mod .
@@ -17,6 +18,7 @@ COPY ./templates ./templates
 COPY ./public ./public
 COPY ./pages ./pages
 COPY ./api ./api
+COPY ./lib ./lib
 
 RUN go build .
 
