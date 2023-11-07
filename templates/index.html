@@ -37,6 +37,40 @@
       </button>
 
       <p id="hello"></p>
+
+      <br />
+
+      <h2 class="text-xl sm:text-2xl">Websocket Count Demo:</h2>
+
+      <div class="flex-row flex gap-2">
+        <button
+          class="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+          hx-get="/countminus"
+          hx-trigger="click"
+          hx-swap="none"
+        >
+          -</button
+        ><button
+          class="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+          hx-get="/countplus"
+          hx-trigger="click"
+          hx-swap="none"
+        >
+          +
+        </button>
+      </div>
+
+      <div hx-ext="ws" ws-connect="/ws">
+        <p
+          hx-get="/count"
+          hx-trigger="load"
+          hx-target="this"
+          hx-swap="outerHTML"
+          id="countfromserver"
+        >
+          0
+        </p>
+      </div>
     </main>
   </body>
 </html>
