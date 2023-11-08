@@ -5,6 +5,7 @@ import (
 	"darius/pages"
 	"log"
 
+	jwtware "github.com/gofiber/contrib/jwt"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/etag"
 	"github.com/gofiber/template/html/v2"
@@ -20,8 +21,13 @@ func main() {
 		ViewsLayout: "base",
 	})
 
-	// Etag middleware
+	// Middleware
 	app.Use(etag.New())
+	app.Use(jwtware.New(jwtware.Config{
+		SigningKey: jwtware.SigningKey{Key: []byte("secret")},
+		Filter: func(c *fiber.Ctx) bool {
+			return c.Path() != "/restricted"
+		}}))
 
 	// Static Routes
 	app.Static("/", "./public", fiber.Static{

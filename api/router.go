@@ -14,6 +14,10 @@ func Register(app *fiber.App) {
 	app.Get("/countminus", DecrementCountHandler)
 	app.Get("/count", GetCounthandler)
 
+	// Private route
+	app.Get("/restricted", lib.Restricted)
+	app.Post("/token/login", lib.GetJWT)
+
 	// Register the websocket routes
 	go lib.RunHub()
 	app.Use("/ws", lib.WsUseHandler)
