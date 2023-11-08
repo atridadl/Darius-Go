@@ -6,6 +6,7 @@ import (
 	"log"
 
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/etag"
 	"github.com/gofiber/template/html/v2"
 )
 
@@ -18,6 +19,9 @@ func main() {
 		Views:       engine,
 		ViewsLayout: "base",
 	})
+
+	// Etag middleware
+	app.Use(etag.New())
 
 	// Static Routes
 	app.Static("/", "./public", fiber.Static{
