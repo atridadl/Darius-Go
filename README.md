@@ -1,9 +1,6 @@
-
 ![logo](https://github.com/atridadl/Darius/assets/88056492/445105c2-c5d0-44d9-8daa-fc7f4e5d754b)
 
-
 # ✨ Darius ✨
-
 
 🚀 A Web Application Template Powered by HTMX + Go Fiber + Tailwind 🚀
 
@@ -11,8 +8,10 @@
 
 - public/ - Static assets
 - pages/ - Page route handlers
+- lib/ - Libraries for use in route handlers
 - templates/ - HTML Templates for use in route handlers
 - templates/partials - HTML partials for use in templates
+- templates/layouts - HTML layouts for use in templates
 - api/ - API route handlers
 
 ## CSS Changes
