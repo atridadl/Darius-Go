@@ -24,6 +24,7 @@ func main() {
 	// Middleware
 	app.Use(etag.New())
 	app.Use(jwtware.New(jwtware.Config{
+		// CHANGE THIS SECRET! This is used for demo purposes only! You should never hardcode your secret in your code like this!
 		SigningKey: jwtware.SigningKey{Key: []byte("secret")},
 		Filter: func(c *fiber.Ctx) bool {
 			return c.Path() != "/restricted"
