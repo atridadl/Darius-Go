@@ -36,7 +36,7 @@ func GetJWT(c *fiber.Ctx) error {
 
 	// Generate encoded token and send it as response.
 	// CHANGE THIS SECRET! This is used for demo purposes only! You should never hardcode your secret in your code like this!
-	t, err := token.SignedString([]byte("secret"))
+	t, err := token.SignedString([]byte("CHANGEME"))
 	if err != nil {
 		return c.SendStatus(fiber.StatusInternalServerError)
 	}
