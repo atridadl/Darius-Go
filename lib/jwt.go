@@ -34,10 +34,24 @@ func GetJWT(c *fiber.Ctx) error {
 		return c.SendStatus(fiber.StatusInternalServerError)
 	}
 
-	c.Cookie(&fiber.Cookie{
-		Name:   "token",
-		Value:  t,
-		MaxAge: 3600,
-	})
-	return c.JSON(fiber.Map{"success": "true"})
+	if c.IsFromLocal() {
+		c.Cookie(&fiber.Cookie{
+			Name:   "token",
+			Value:  t,
+			MaxAge: 3600,
+		})
+		return c.JSON(fiber.Map{"success": "true"})
+	} else {
+		c.Cookie(&fiber.Cookie{
+			Name:     "token",
+			Value:    t,
+			Expires:  time.Now().Add(time.Hour * 72),
+			HTTPOnly: true,
+			Secure:   true,
+			MaxAge:   3600,
+		})
+
+		return c.JSON(fiber.Map{"success": "true"})
+	}
+
 }

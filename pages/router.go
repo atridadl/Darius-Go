@@ -18,5 +18,5 @@ func Register(app *fiber.App) {
 
 	// Page Routes
 	app.Get("/", IndexHandler)
-	app.Get("/restricted", Restricted)
+	app.Get("/restricted", RestrictedHandler)
 }

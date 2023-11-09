@@ -7,6 +7,7 @@ import (
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/etag"
+	"github.com/gofiber/fiber/v2/middleware/helmet"
 	"github.com/gofiber/template/html/v2"
 )
 
@@ -21,6 +22,7 @@ func main() {
 
 	// Primary Middleware
 	app.Use(etag.New())
+	app.Use(helmet.New())
 
 	// Static Routes
 	app.Static("/", "./public", fiber.Static{

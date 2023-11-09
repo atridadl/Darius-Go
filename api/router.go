@@ -25,7 +25,7 @@ func Register(app *fiber.App) {
 	app.Get("/count", GetCounthandler)
 
 	// Register Auth API routes
-	app.Get("/api/restricted", Restricted)
+	app.Get("/api/restricted", RestrictedHandler)
 	app.Post("/token/login", lib.GetJWT)
 
 	// Register the websocket routes
