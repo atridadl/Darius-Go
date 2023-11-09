@@ -18,10 +18,28 @@ func Register(app *fiber.App) {
 		},
 	}))
 
+	app.Use(jwtware.New(jwtware.Config{
+		// CHANGE THIS SECRET! This is used for demo purposes only! You should never hardcode your secret in your code like this!
+		SigningKey: jwtware.SigningKey{Key: []byte("CHANGEME")},
+		Filter: func(c *fiber.Ctx) bool {
+			return c.Path() != "/api/loginform"
+		},
+		TokenLookup: "cookie:token",
+		ErrorHandler: func(c *fiber.Ctx, err error) error {
+			if c.Path() == "/api/loginform" {
+				return c.Next()
+			} else {
+				return c.SendString("Missing or malformed JWT")
+			}
+		},
+	}))
+
 	// Register the API routes
 	app.Get("/api/hello", HelloHandler)
 	app.Get("/api/countplus", IncrementCountHandler)
 	app.Get("/api/countminus", DecrementCountHandler)
+	app.Get("/api/loginform", LoginFormHandler)
+
 	app.Get("/api/count", GetCounthandler)
 
 	// Register Auth API routes

@@ -64,14 +64,14 @@ func GenerateJWTHandler(c *fiber.Ctx) error {
 			return c.JSON(fiber.Map{"success": "true"})
 		} else {
 			return c.SendString(`
-		<p id="hello">😊 Success! 😊</p>
-		<p>Try going go this page to test it out!:</p>
-		<a
-			class="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
-			href="/restricted"
-		>
-			Shhh! Secret!
-		</a>`)
+			<p id="hello">😊 Success! 😊</p>
+			<p>Try going go this page to test it out!:</p>
+			<a
+				class="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+				href="/restricted"
+			>
+				Shhh! Secret!
+			</a>`)
 		}
 	} else {
 		c.Cookie(&fiber.Cookie{
@@ -87,14 +87,14 @@ func GenerateJWTHandler(c *fiber.Ctx) error {
 			return c.JSON(fiber.Map{"success": "true"})
 		} else {
 			return c.SendString(`
-		<p id="hello">😊 Success! 😊</p>
-		<p>Try going go this page to test it out!:</p>
-		<a
-			class="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
-			href="/restricted"
-		>
-			Shhh! Secret!
-		</a>`)
+			<p id="hello">😊 Success! 😊</p>
+			<p>Try going go this page to test it out!:</p>
+			<a
+				class="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+				href="/restricted"
+			>
+				Shhh! Secret!
+			</a>`)
 		}
 	}
 
