@@ -1,0 +1,3 @@
+# flyctl launch added from .gitignore
+**/*.fiber.gz
+fly.toml
