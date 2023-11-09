@@ -7,13 +7,6 @@ import (
 	"github.com/golang-jwt/jwt/v5"
 )
 
-func Restricted(c *fiber.Ctx) error {
-	user := c.Locals("user").(*jwt.Token)
-	claims := user.Claims.(jwt.MapClaims)
-	name := claims["name"].(string)
-	return c.SendString("Welcome " + name)
-}
-
 func GetJWT(c *fiber.Ctx) error {
 
 	var user string = c.FormValue("user")
@@ -26,9 +19,9 @@ func GetJWT(c *fiber.Ctx) error {
 
 	// Create the Claims
 	claims := jwt.MapClaims{
-		"name":  user + " " + pass,
-		"admin": true,
-		"exp":   time.Now().Add(time.Hour * 72).Unix(),
+		"username": user,
+		"admin":    true,
+		"exp":      time.Now().Add(time.Hour * 72).Unix(),
 	}
 
 	// Create token
@@ -41,5 +34,10 @@ func GetJWT(c *fiber.Ctx) error {
 		return c.SendStatus(fiber.StatusInternalServerError)
 	}
 
-	return c.JSON(fiber.Map{"token": t})
+	c.Cookie(&fiber.Cookie{
+		Name:   "token",
+		Value:  t,
+		MaxAge: 3600,
+	})
+	return c.JSON(fiber.Map{"success": "true"})
 }
