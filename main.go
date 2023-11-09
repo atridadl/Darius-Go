@@ -19,24 +19,7 @@ func main() {
 		Views: engine,
 	})
 
-	// Middleware
-	// app.Use(jwtware.New(jwtware.Config{
-	// 	// CHANGE THIS SECRET! This is used for demo purposes only! You should never hardcode your secret in your code like this!
-	// 	SigningKey: jwtware.SigningKey{Key: []byte("CHANGEME")},
-	// 	Filter: func(c *fiber.Ctx) bool {
-	// 		return c.Path() != "/api/restricted"
-	// 	},
-	// }))
-
-	// app.Use(jwtware.New(jwtware.Config{
-	// 	// CHANGE THIS SECRET! This is used for demo purposes only! You should never hardcode your secret in your code like this!
-	// 	SigningKey: jwtware.SigningKey{Key: []byte("CHANGEME")},
-	// 	Filter: func(c *fiber.Ctx) bool {
-	// 		return c.Path() != "/restricted"
-	// 	},
-	// 	TokenLookup: "cookie:token",
-	// }))
-
+	// Primary Middleware
 	app.Use(etag.New())
 
 	// Static Routes
