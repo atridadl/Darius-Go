@@ -5,6 +5,7 @@ import (
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/golang-jwt/jwt/v5"
+	"golang.org/x/crypto/bcrypt"
 )
 
 func GetJWT(c *fiber.Ctx) error {
@@ -12,8 +13,20 @@ func GetJWT(c *fiber.Ctx) error {
 	var user string = c.FormValue("user")
 	var pass string = c.FormValue("pass")
 
-	// Throws Unauthorized error
+	hashed, _ := bcrypt.GenerateFromPassword([]byte(pass), 8)
+
+	pass = string(hashed)
+
+	println("HASHED PASSWORD: " + pass)
+
+	// Throws Unauthorized error if no user and pass is sent
 	if user == "" || pass == "" {
+		return c.SendStatus(fiber.StatusUnauthorized)
+	}
+
+	// Throws Unauthorized error if user or pass is incorrect
+	// This is where you would perform a check against your database for the username and password
+	if false {
 		return c.SendStatus(fiber.StatusUnauthorized)
 	}
 
