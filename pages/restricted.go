@@ -12,5 +12,5 @@ func RestrictedHandler(c *fiber.Ctx) error {
 	return c.Render("restricted", fiber.Map{
 		"Title": "Home",
 		"Name":  username,
-	})
+	}, "layouts/base")
 }
