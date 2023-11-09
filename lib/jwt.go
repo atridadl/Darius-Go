@@ -17,8 +17,6 @@ func GetJWT(c *fiber.Ctx) error {
 
 	pass = string(hashed)
 
-	println("HASHED PASSWORD: " + pass)
-
 	// Throws Unauthorized error if no user and pass is sent
 	if user == "" || pass == "" {
 		return c.SendStatus(fiber.StatusUnauthorized)
