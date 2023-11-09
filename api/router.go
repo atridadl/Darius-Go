@@ -19,14 +19,14 @@ func Register(app *fiber.App) {
 	}))
 
 	// Register the API routes
-	app.Get("/hello", HelloHandler)
-	app.Get("/countplus", IncrementCountHandler)
-	app.Get("/countminus", DecrementCountHandler)
-	app.Get("/count", GetCounthandler)
+	app.Get("/api/hello", HelloHandler)
+	app.Get("/api/countplus", IncrementCountHandler)
+	app.Get("/api/countminus", DecrementCountHandler)
+	app.Get("/api/count", GetCounthandler)
 
 	// Register Auth API routes
 	app.Get("/api/restricted", RestrictedHandler)
-	app.Post("/token/login", lib.GetJWT)
+	app.Post("/api/token", lib.GenerateJWTHandler)
 
 	// Register the websocket routes
 	go lib.RunHub()
